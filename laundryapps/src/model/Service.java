@@ -1,11 +1,22 @@
 package model;
 
 public class Service {
-    String id;
-    String jenis;
-    double harga;
-    String status;
+    private String id;
+    private String serviceName;
+    private String description;
+    private double price;
 
+    // Konstruktor
+    public Service() {}
+
+    public Service(String id, String serviceName, String description, double price) {
+        this.id = id;
+        this.serviceName = serviceName;
+        this.description = description;
+        this.price = price;
+    }
+
+    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -14,27 +25,27 @@ public class Service {
         this.id = id;
     }
 
-    public String getJenis() {
-        return jenis;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setJenis(String jenis) {
-        this.jenis = jenis;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public double getHarga() {
-        return harga;
+    public String getDescription() {
+        return description;
     }
 
-    public void setHarga(double harga) {
-        this.harga = harga;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public double getPrice() {
+        return price;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

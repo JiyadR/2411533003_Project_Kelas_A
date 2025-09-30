@@ -105,12 +105,22 @@ public class UserFrame extends JFrame {
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				User user = new User();
-				user.setNama(txtName.getText());
-				user.setUsername(txtUsername.getText());
-				user.setPassword(txtPassword.getText());
-				usr.save(user);
-				reset();
+				String nama = txtName.getText();
+		        String usernameFormatted = txtUsername.getText().toLowerCase().replaceAll("\\s+", "");
+		        String password = txtPassword.getText();
+
+		        if (password.length() < 6) {
+		            JOptionPane.showMessageDialog(null, "Password minimal 6 karakter!", "Error", JOptionPane.ERROR_MESSAGE);
+		            return;
+		        }
+
+		        User user = new User();
+		        user.setNama(nama);
+		        user.setUsername(usernameFormatted);
+		        user.setPassword(password);
+		        usr.save(user);
+		        reset();
+		        loadTable();
 			}
 		});
 		btnSave.setBackground(new Color(39, 174, 96));
@@ -122,13 +132,16 @@ public class UserFrame extends JFrame {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				User user = new User();
-				user.setNama(txtName.getText());
-				user.setUsername(txtUsername.getText());
-				user.setPassword(txtPassword.getText());
-				user.setId(id);
-				usr.update(user);
-				reset();
-				loadTable();
+		        user.setNama(txtName.getText());
+		        
+		        String usernameFormatted = txtUsername.getText().toLowerCase().replaceAll("\\s+", "");
+		        user.setUsername(usernameFormatted);
+
+		        user.setPassword(txtPassword.getText());
+		        user.setId(id);
+		        usr.update(user);
+		        reset();
+		        loadTable();
 			}
 		});
 		btnUpdate.setBackground(new Color(41, 128, 185));
