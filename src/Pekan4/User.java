@@ -1,4 +1,4 @@
-package defaultPackage;
+package Pekan4;
 
 public class User {
     private String name;

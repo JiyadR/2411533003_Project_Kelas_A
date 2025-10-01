@@ -1,4 +1,4 @@
-package defaultPackage;
+package Pekan4;
 
 public class Magazine extends Book {
     private String category;
